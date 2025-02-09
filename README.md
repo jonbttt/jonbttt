@@ -1,4 +1,7 @@
-## Hi there 👋
+# Hi, I'm Jonathan
+
+I'm an undergraduate student at UNSW studying Computer Science and specialising in Security Engineering
+
 
 <!--
 **jonbttt/jonbttt** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
