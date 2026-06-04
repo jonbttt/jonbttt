@@ -1,19 +1,13 @@
-# Hi, I'm Jonathan
+# Hey, I'm Jonathan!
 
-I'm an undergraduate student at UNSW studying Computer Science and specialising in Security Engineering
+Final-year CS student @UNSW, specialising in Security Engineering.
+Graduating September 2026. Based in Sydney.
 
+Currently building **Sentry-XDP** - an eBPF/XDP-based network IDS.
+Also: LKM rootkits, home lab SIEM, mixed reality apps.
 
-<!--
-**jonbttt/jonbttt** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Looking for grad roles in cybersecurity and software engineering.
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**Links**
+- Portfolio: [jonbttt.github.io](https://jonbttt.github.io)
+- LinkedIn: [linkedin.com/in/jonbttt](https://linkedin.com/in/jonbttt)
