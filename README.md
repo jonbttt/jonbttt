@@ -1,13 +1,27 @@
-# Hey, I'm Jonathan!
+<pre>
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣦⣶⡤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⢶⣾⡿⠛⢛⣭⣭⡀⠊⣿⡝⢿⣿⡷⠦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣷⣿⣿⣿⣀⠈⢻⣿⢛⢇⣸⡠⢶⣭⠃⠀⠈⢿⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣏⣾⣿⣿⢄⣸⡏⢸⢸⣿⣵⣯⢻⡇⢠⡀⠘⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢀⣾⣿⣿⢏⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣦⣾⣿⢿⣧⣽⣿⣿⣿⣶⡿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⣿⣿⣿⣿⡟⣿⣿⣿⣿⣿⣿⣿⣿⣧⣿⣿⢿⡆⠀⠀⠀jonbttt@github
+⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⡏⠅⠀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢿⣿⣿⣿⠀⣷⠀⠀⠀---------------------------------------------
+⠀⠀⣿⣿⣿⣿⣿⣿⠻⣜⡇⠀⢀⣿⣿⣿⣿⣿⣿⣿⡼⣿⡟⢻⡇⠙⠀⣾⣿⣿⣿⡆⣻⠀⠀⠀Role .......... Security Engineering student
+⠀⠀⣿⣿⢇⣿⣿⣿⣶⣀⣷⢀⣸⣿⣿⣯⣭⣋⣿⣿⡇⢩⠋⢈⡇⠀⠰⣿⣿⡿⠋⡇⠹⠀⠀⠀Education ..... BSc Computer Science, UNSW
+⠀⠀⣿⣿⣴⣴⣇⠀⣸⣿⣶⣌⣴⣿⣿⣿⠿⠆⠀⢴⣧⣀⠀⡀⠀⣀⣤⣼⡿⢀⠀⠀⠀⠀⠀⠀⠀Work Exp ...... SWE @The Golfer Network
+⠀⠈⢻⣯⢻⣷⠄⣼⣿⢿⣿⣿⣿⣷⣾⣧⣤⣂⣴⣶⣿⣶⣥⣳⡞⠋⣩⣁⡌⠙⠿⣦⠀⠀⠀⠀............... AI Eng @PT Wide Technologies
+⠀⠀⠈⣆⡸⣿⣇⣿⣿⣿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⠃⠀⢠⡾⠃⠀⠀⠀Focus ......... Linux threat detection, SOC
+⠀⠀⠀⠈⠁⠈⠉⢻⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⣠⠎⠀⠀⠀⠀⠀Languages ..... C, Python, JS, Bash, Rust
+⠀⠀⠀⠀⢶⠃⡀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠿⣿⡿⢿⣿⣿⣿⠟⠋⠁        Environment .. Windows + WSL2 / Multipass
+⠀⠀⠀⠀⠀⣶⣷⢸⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣶⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀Editor ........ VSCode
+⠀⠀⠀⠀⠀⠘⠻⣾⣄⠙⢿⣿⣿⣿⣿⣿⣛⣛⣉⣙⣛⣛⣛⠛⣿⡟⠁            Projects ......⠀eBPF / XDP IPS (Ward-XDP)
+⠀⠀⠀⣀⣀⣤⣴⣿⣿⣧⡀⠙⢿⣿⣿⣿⣿⣿⣿⠿⠿⠿⢿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀............... LKM Rootkit (rk-veil)
+⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⠀⠉⠻⣿⣿⣿⣿⣿⣶⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀............... Home Lab SIEM (ELK)
+⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠈⠙⠛⠛⠻⢟⣿⣷⣦⣷⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣀⣤⣀⣀⡔⣺⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠈⠹⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</pre>
 
-Final-year CS student @UNSW, specialising in Security Engineering.
-Graduating September 2026. Based in Sydney.
-
-Currently building **Sentry-XDP** - an eBPF/XDP-based network IDS.
-Also: LKM rootkits, home lab SIEM, mixed reality apps.
-
-Looking for grad roles in cybersecurity and software engineering.
-
-**Links**
-- Portfolio: [jonbttt.github.io](https://jonbttt.github.io)
-- LinkedIn: [linkedin.com/in/jonbttt](https://linkedin.com/in/jonbttt)
+[+] [Portfolio Website](https://jonbttt.github.io)\
+[+] [LinkedIn](https://linkedin.com/in/jonbttt)\
+[+] [rk-veil](https://github.com/jonbttt/rk-veil)
