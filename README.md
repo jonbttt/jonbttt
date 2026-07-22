@@ -12,7 +12,7 @@
 ⠀⠈⢻⣯⢻⣷⠄⣼⣿⢿⣿⣿⣿⣷⣾⣧⣤⣂⣴⣶⣿⣶⣥⣳⡞⠋⣩⣁⡌⠙⠿⣦⠀    ............... AI Eng @PT Wide Technologies
 ⠀⠀⠈⣆⡸⣿⣇⣿⣿⣿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⠃⠀⢠⡾⠃    Focus ......... Linux threat detection, SOC
 ⠀⠀⠀⠈⠁⠈⠉⢻⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⣠⠎       Languages ..... C, Python, JS, Bash, Rust
-⠀⠀⠀⠀⢶⠃⡀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠿⣿⡿⢿⣿⣿⣿⠟⠋⠁        Environment .. Windows + WSL2 / Multipass
+⠀⠀⠀⠀⢶⠃⡀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠿⣿⡿⢿⣿⣿⣿⠟⠋⠁        Environment ... Windows + WSL2 / Multipass
 ⠀⠀⠀⠀⠀⣶⣷⢸⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣶⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀    Editor ........ VSCode
 ⠀⠀⠀⠀⠀⠘⠻⣾⣄⠙⢿⣿⣿⣿⣿⣿⣛⣛⣉⣙⣛⣛⣛⠛⣿⡟⠁            Projects ......⠀eBPF / XDP IPS (Ward-XDP)
 ⠀⠀⠀⣀⣀⣤⣴⣿⣿⣧⡀⠙⢿⣿⣿⣿⣿⣿⣿⠿⠿⠿⢿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀............... LKM Rootkit (rk-veil)
