@@ -227,7 +227,7 @@ query($login:String!, $merged:String!, $recent:String!){
     followers{totalCount}
     repositories(ownerAffiliations:OWNER, privacy:PUBLIC, first:100, isFork:false){
       totalCount nodes{stargazerCount}}
-    contributionsCollection{totalCommitContributions}
+    contributionsCollection{contributionCalendar{totalContributions}}
     pullRequests{totalCount}
   }
   merged: search(query:$merged, type:ISSUE){issueCount}
@@ -256,7 +256,7 @@ def fetch_live():
         "repos": u["repositories"]["totalCount"],
         "stars": sum(n["stargazerCount"] for n in u["repositories"]["nodes"]),
         "followers": u["followers"]["totalCount"],
-        "commits": u["contributionsCollection"]["totalCommitContributions"],
+        "contribs": u["contributionsCollection"]["contributionCalendar"]["totalContributions"],
         "prs": u["pullRequests"]["totalCount"],
         "merged": d["merged"]["issueCount"],
         "recent": [{"title": p["title"], "num": p["number"], "url": p["url"], "state": p["state"],
@@ -266,7 +266,7 @@ def fetch_live():
 
 
 def mock_live():
-    return {"repos": 14, "stars": 9, "followers": 21, "commits": 412, "prs": 6, "merged": 2,
+    return {"repos": 14, "stars": 9, "followers": 21, "contribs": 412, "prs": 6, "merged": 2,
             "recent": [
                 {"title": "SAMPLE: fix silently dropped address when label exceeds 15 chars",
                  "num": 512, "url": "#", "state": "OPEN", "repo": "canonical/netplan", "date": "2026-10-20"},
@@ -279,7 +279,7 @@ def mock_live():
 def build_stats(s):
     h = 112
     cells = [("repos", s["repos"], PINK), ("stars", s["stars"], AMBER),
-             ("followers", s["followers"], VIOLET), (f"commits {dt.date.today().year}", s["commits"], CYAN),
+             ("followers", s["followers"], VIOLET), ("contributions (1y)", s["contribs"], CYAN),
              ("pull requests", s["prs"], GREEN), ("merged", s["merged"], VIOLET)]
     colw = (W - 40) / 3
     b = [f'<rect x="1" y="1" width="{W-2}" height="{h-2}" rx="12" fill="{BG}" stroke="{BORDER}"/>']
