@@ -222,7 +222,7 @@ def build_static():
 
 
 QUERY = """
-query($login:String!, $own:String!, $merged:String!, $recent:String!){
+query($login:String!, $merged:String!, $recent:String!){
   user(login:$login){
     followers{totalCount}
     repositories(ownerAffiliations:OWNER, privacy:PUBLIC, first:100, isFork:false){
@@ -239,7 +239,7 @@ query($login:String!, $own:String!, $merged:String!, $recent:String!){
 
 def fetch_live():
     token = os.environ["GITHUB_TOKEN"]
-    variables = {"login": LOGIN, "own": LOGIN,
+    variables = {"login": LOGIN,
                  "merged": f"author:{LOGIN} type:pr is:merged",
                  "recent": f"author:{LOGIN} type:pr sort:created-desc"}
     req = urllib.request.Request(
