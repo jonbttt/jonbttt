@@ -17,5 +17,8 @@
 <img src="assets/sec-activity.svg" width="100%" alt="gh pr list --author jonbttt">
 
 <!-- LIVE:START -->
-<sub>stats load after the first workflow run</sub>
+<img src="assets/stats.svg" width="100%" alt="GitHub stats">
+
+<a href="https://github.com/sched-ext/scx/pull/3940"><img src="assets/pr-1.svg" width="100%" alt="sched-ext/scx #3940: scx_lavd: Don't fully boost the slice of affinitized tasks"></a>
+<a href="https://github.com/canonical/netplan/pull/619"><img src="assets/pr-2.svg" width="100%" alt="canonical/netplan #619: parse: reject address labels longer than 15 characters (LP: #2102708)"></a>
 <!-- LIVE:END -->
