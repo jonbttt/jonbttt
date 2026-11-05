@@ -19,6 +19,7 @@
 <!-- LIVE:START -->
 <img src="assets/stats.svg" width="100%" alt="GitHub stats">
 
-<a href="https://github.com/sched-ext/scx/pull/3940"><img src="assets/pr-1.svg" width="100%" alt="sched-ext/scx #3940: scx_lavd: Don't fully boost the slice of affinitized tasks"></a>
-<a href="https://github.com/canonical/netplan/pull/619"><img src="assets/pr-2.svg" width="100%" alt="canonical/netplan #619: parse: reject address labels longer than 15 characters (LP: #2102708)"></a>
+<a href="https://github.com/sched-ext/scx/pull/3969"><img src="assets/pr-1.svg" width="100%" alt="sched-ext/scx #3969: scx_lavd: Skip performance domains with no online CPU"></a>
+<a href="https://github.com/sched-ext/scx/pull/3940"><img src="assets/pr-2.svg" width="100%" alt="sched-ext/scx #3940: scx_lavd: Don't fully boost the slice of affinitized tasks"></a>
+<a href="https://github.com/canonical/netplan/pull/619"><img src="assets/pr-3.svg" width="100%" alt="canonical/netplan #619: parse: reject address labels longer than 15 characters (LP: #2102708)"></a>
 <!-- LIVE:END -->
