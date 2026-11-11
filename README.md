@@ -12,7 +12,7 @@
 
 <a href="https://github.com/jonbttt/ward-xdp"><img src="assets/proj-ward-xdp.svg" width="100%" alt="Ward-XDP. eBPF/XDP inline IPS with a Go control plane"></a>
 <a href="https://github.com/jonbttt/rk-veil"><img src="assets/proj-rk-veil.svg" width="100%" alt="rk-veil. Linux kernel module rootkit and detector"></a>
-<a href="https://lore.kernel.org/bpf/?q=f%3Athamrin"><img src="assets/proj-kernel.svg" width="100%" alt="selftests/bpf wq fix. Upstream Linux kernel patch"></a>
+<a href="https://lore.kernel.org/bpf/?q=f%3Athamrin"><img src="assets/proj-kernel.svg" width="100%" alt="Kernel patches"></a>
 
 <img src="assets/sec-activity.svg" width="100%" alt="gh pr list --author jonbttt">
 
