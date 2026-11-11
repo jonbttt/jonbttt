@@ -21,20 +21,20 @@ INFO = [  # (label, value). Empty label = continuation line.
     ("Education", "BSc CS (Security Eng.), UNSW"),
     ("Experience", "SWE @ The Golfer Network"),
     ("", "AI Eng @ PT Wide Technologies"),
-    ("Focus", "Linux kernel, eBPF, systems"),
-    ("Upstream", "bpf-next, canonical/netplan"),
+    ("Focus", "Linux kernel, eBPF, Systems"),
     ("Languages", "C, Go, Rust, Python, Bash"),
     ("OS", "Fedora 44 + Windows (dual boot)"),
     ("WM", "Hyprland"),
     ("Editor", "VSCode"),
+    ("Hobbies", "Powerlifting, MTG, Gaming, Cooking"),
 ]
 PROJECTS = [  # (file id, name, description, tags, url)
     ("ward-xdp", "Ward-XDP", "eBPF/XDP inline IPS with a Go control plane, ~51 ns per packet",
      "C · Go · eBPF", "https://github.com/jonbttt/ward-xdp"),
-    ("rk-veil", "rk-veil", "Linux kernel module rootkit + detector, presented at SCONES 2026",
-     "C · Python", "https://github.com/jonbttt/rk-veil"),
-    ("kernel", "selftests/bpf wq fix", "Upstream Linux kernel patch to bpf-next, flaky selftest fix",
-     "C · kernel", "https://lore.kernel.org/bpf/?q=f%3Athamrin"),
+    ("rk-veil", "rk-veil", "Linux kernel module rootkit, presented at SCONES 2026",
+     "C", "https://github.com/jonbttt/rk-veil"),
+    ("kernel", "Kernel patches", "Upstream Linux kernel patches to the BPF subsystem (bpf-next)",
+     "C · kernel", "https://patchwork.kernel.org/project/netdevbpf/list/?submitter=225817&state=*"),
 ]
 BUTTONS = [("portfolio", "portfolio"), ("linkedin", "linkedin")]  # (file id, label)
 EXCLUDE_OWN_REPOS = True  # hide PRs to your own repos in "recent PRs"
