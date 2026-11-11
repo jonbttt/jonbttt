@@ -39,6 +39,9 @@ PROJECTS = [  # (file id, name, description, tags, url)
 BUTTONS = [("portfolio", "portfolio"), ("linkedin", "linkedin")]  # (file id, label)
 EXCLUDE_OWN_REPOS = True  # hide PRs to your own repos in "recent PRs"
 N_PRS = 5
+# kernel patches from patchwork (mailing-list work that GitHub can't see)
+PATCHWORK = "https://patchwork.kernel.org/api/patches/"
+PATCHWORK_PROJECT, PATCHWORK_SUBMITTER = "netdevbpf", 225817
 
 # ------------------------------------------------------------------ THEME
 # pulled from the Hyprland rice (look.lua + kitty.conf)
@@ -48,7 +51,14 @@ TEXT, DIM, FAINT = "#dcd6e8", "#8a8299", "#4a4458"       # fg, waybar dim, inact
 PINK, VIOLET, CYAN = "#cfc2ee", "#b8a7e0", "#9aaee0"     # color13, primary, color4
 GREEN, AMBER = "#a6c9a0", "#e3c99a"                      # color2, color3
 ANSI = ["#e09a9a", "#a6c9a0", "#e3c99a", "#9aaee0", "#b8a7e0", "#9ccfd8", "#dcd6e8", "#4a4458"]
-STATE = {"OPEN": ("#a6c9a0", "open"), "MERGED": ("#b8a7e0", "merged"), "CLOSED": ("#e09a9a", "closed")}
+STATE = {"OPEN": ("#a6c9a0", "open"), "MERGED": ("#b8a7e0", "merged"), "CLOSED": ("#e09a9a", "closed"),
+         # patchwork states
+         "new": ("#a6c9a0", "review"), "under-review": ("#a6c9a0", "review"), "rfc": ("#a6c9a0", "rfc"),
+         "awaiting-upstream": ("#a6c9a0", "review"), "queued": ("#b8a7e0", "queued"),
+         "accepted": ("#b8a7e0", "accepted"), "mainlined": ("#b8a7e0", "accepted"),
+         "changes-requested": ("#e3c99a", "changes"), "deferred": ("#e3c99a", "deferred"),
+         "superseded": ("#8a8299", "superseded"), "rejected": ("#e09a9a", "rejected"),
+         "not-applicable": ("#e09a9a", "closed"), "handled-elsewhere": ("#8a8299", "closed")}
 CW = 0.6  # JetBrains Mono advance width per 1px of font size
 W = 860   # every SVG shares this width so they line up stacked in the README
 
@@ -259,20 +269,73 @@ def fetch_live():
         "contribs": u["contributionsCollection"]["contributionCalendar"]["totalContributions"],
         "prs": u["pullRequests"]["totalCount"],
         "merged": d["merged"]["issueCount"],
-        "recent": [{"title": p["title"], "num": p["number"], "url": p["url"], "state": p["state"],
-                    "repo": p["repository"]["nameWithOwner"], "date": p["createdAt"][:10]}
-                   for p in prs[:N_PRS]],
+        "recent": sorted(
+            [{"title": p["title"], "num": f"#{p['number']}", "url": p["url"], "state": p["state"],
+              "repo": p["repository"]["nameWithOwner"], "date": p["createdAt"][:10]} for p in prs]
+            + fetch_patchwork(),
+            key=lambda x: x["date"], reverse=True)[:N_PRS],
     }
+
+
+def fetch_patchwork():
+    """Your patches on the netdev/bpf patchwork, newest first. One row per series
+    (a 2-patch series is one row), and a v2 replaces its v1."""
+    url = (f"{PATCHWORK}?project={PATCHWORK_PROJECT}&submitter={PATCHWORK_SUBMITTER}"
+           f"&order=-date&per_page=100")
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": f"{LOGIN}-profile-readme"})
+        items = json.load(urllib.request.urlopen(req, timeout=30))
+    except Exception as e:  # never let patchwork being down break the whole build
+        print("patchwork fetch failed, skipping:", e)
+        return []
+
+    def split(name):
+        # patchwork stores names like "[bpf-next,v2,2/2] selftests/bpf: ..."
+        m = re.match(r"\[([^\]]*)\]\s*(.*)", name)
+        if not m:
+            return [], name
+        return [t for t in re.split(r"[,\s]+", m.group(1)) if t], m.group(2)
+
+    series = {}
+    for it in items:  # newest first
+        tags, title = split(it["name"])
+        sr = (it.get("series") or [{}])[0]
+        key = sr.get("id") or f"patch-{it['id']}"
+        pos = next((t for t in tags if re.fullmatch(r"\d+/\d+", t)), "1/1")
+        g = series.setdefault(key, {"items": [], "series_name": sr.get("name"), "version": sr.get("version")})
+        g["items"].append((int(pos.split("/")[0]), tags, title, it))
+
+    out, seen = [], set()
+    for g in sorted(series.values(), key=lambda g: max(i[3]["date"] for i in g["items"]), reverse=True):
+        g["items"].sort(key=lambda i: i[0])
+        _, tags, title, first = g["items"][0]
+        sname = g["series_name"]
+        if sname:  # cover letter subject, or the first patch's subject
+            title = split(sname)[1] or title
+        if title in seen:  # older revision of a series we already listed
+            continue
+        seen.add(title)
+        ver = f"v{g['version']}" if g["version"] else next(
+            (t for t in tags if re.fullmatch(r"v\d+", t)), "v1")
+        n = len(g["items"])
+        tree = next((t for t in tags if t.startswith(("bpf", "net"))), "bpf")
+        state = first["state"] if first["state"] in STATE else "new"
+        out.append({"title": title + (f" ({n} patches)" if n > 1 else ""), "num": ver,
+                    "url": first["web_url"], "state": state,
+                    "repo": f"kernel/{tree}", "date": max(i[3]["date"] for i in g["items"])[:10]})
+    return out
 
 
 def mock_live():
     return {"repos": 14, "stars": 9, "followers": 21, "contribs": 412, "prs": 6, "merged": 2,
             "recent": [
                 {"title": "SAMPLE: fix silently dropped address when label exceeds 15 chars",
-                 "num": 512, "url": "#", "state": "OPEN", "repo": "canonical/netplan", "date": "2026-10-20"},
-                {"title": "SAMPLE: docs typo", "num": 1801, "url": "#", "state": "MERGED",
+                 "num": "#512", "url": "#", "state": "OPEN", "repo": "canonical/netplan", "date": "2026-10-20"},
+                {"title": "SAMPLE: selftests/bpf: fix flaky wq test", "num": "v2", "url": "#", "state": "changes-requested",
+                 "repo": "kernel/bpf-next", "date": "2026-10-19"},
+                {"title": "SAMPLE: docs typo", "num": "#1801", "url": "#", "state": "MERGED",
                  "repo": "example/project", "date": "2026-10-02"},
-                {"title": "SAMPLE: closed experiment", "num": 77, "url": "#", "state": "CLOSED",
+                {"title": "SAMPLE: closed experiment", "num": "#77", "url": "#", "state": "CLOSED",
                  "repo": "example/other", "date": "2026-09-14"}]}
 
 
@@ -297,7 +360,7 @@ def build_pr(i, p):
     h = 56
     col, word = STATE[p["state"]]
     pill_w = len(word) * 12 * CW + 18
-    num = f"#{p['num']}"
+    num = p["num"]
     right = p["date"]
     room = int((W - 40 - pill_w - 12 - len(right) * 12 * CW - 20) / (13 * CW))
     title = fit(p["title"], room - len(p["repo"]) - len(num) - 3)
@@ -321,7 +384,7 @@ def build_live(mock=False):
     for i, p in enumerate(s["recent"], 1):
         build_pr(i, p)
         lines.append(f'<a href="{p["url"]}"><img src="assets/pr-{i}.svg" width="100%" '
-                     f'alt="{escape(p["repo"])} #{p["num"]}: {escape(p["title"])}"></a>')
+                     f'alt="{escape(p["repo"])} {p["num"]}: {escape(p["title"])}"></a>')
     if not s["recent"]:
         lines.append("<sub>no public PRs yet</sub>")
     readme = os.path.join(ROOT, "README.md")

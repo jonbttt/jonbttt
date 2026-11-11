@@ -19,7 +19,9 @@
 <!-- LIVE:START -->
 <img src="assets/stats.svg" width="100%" alt="GitHub stats">
 
-<a href="https://github.com/sched-ext/scx/pull/3969"><img src="assets/pr-1.svg" width="100%" alt="sched-ext/scx #3969: scx_lavd: Skip performance domains with no online CPU"></a>
-<a href="https://github.com/sched-ext/scx/pull/3940"><img src="assets/pr-2.svg" width="100%" alt="sched-ext/scx #3940: scx_lavd: Don't fully boost the slice of affinitized tasks"></a>
-<a href="https://github.com/canonical/netplan/pull/619"><img src="assets/pr-3.svg" width="100%" alt="canonical/netplan #619: parse: reject address labels longer than 15 characters (LP: #2102708)"></a>
+<a href="https://patchwork.kernel.org/project/netdevbpf/patch/20261111-bpftool-cgroup-tree-enoent-v1-1-f3bfcddb4f3d@gmail.com/"><img src="assets/pr-1.svg" width="100%" alt="kernel/bpf-next v1: bpftool: Skip cgroups removed during cgroup tree walk"></a>
+<a href="https://patchwork.kernel.org/project/netdevbpf/patch/20261106-dpath-memfd-v2-1-1dc0799b4aa6@gmail.com/"><img src="assets/pr-2.svg" width="100%" alt="kernel/bpf v2: selftests/bpf: Fix d_path check_mem_access and drop CHECK() (2 patches)"></a>
+<a href="https://github.com/sched-ext/scx/pull/3969"><img src="assets/pr-3.svg" width="100%" alt="sched-ext/scx #3969: scx_lavd: Skip performance domains with no online CPU"></a>
+<a href="https://patchwork.kernel.org/project/netdevbpf/patch/20261104-local-storage-max-v1-1-c836731bd184@gmail.com/"><img src="assets/pr-4.svg" width="100%" alt="kernel/bpf-next v1: Limit local storage value size to max kmalloc_nolock() allocation (2 patches)"></a>
+<a href="https://patchwork.kernel.org/project/netdevbpf/patch/20261103-wq-poll-fix-v3-1-8e7b38f5e71f@gmail.com/"><img src="assets/pr-5.svg" width="100%" alt="kernel/bpf-next v3: selftests/bpf: Wait for wq callback before checking ok_sleepable"></a>
 <!-- LIVE:END -->
